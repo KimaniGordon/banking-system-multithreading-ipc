@@ -67,14 +67,14 @@ void stressTest() {
 
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
-    cout << "Stress Test completed in " << duration.count() << " milliseconds.\n";
+    cout << "\nStress Test completed in " << duration.count() << " milliseconds.\n";
 }
 
 int main() {
     cout << "Starting multi-threaded banking system...\n";
 
     // Run Concurrency Test
-    cout << "\nRunning Concurrency Test...\n";
+    cout << "\n==== Running Concurrency Test ====\n";
     BankAccount account1(100);
     vector<thread> customers1;
     for (int i = 0; i < 5; i++) {
@@ -85,12 +85,12 @@ int main() {
     }
 
     // Run Synchronization Validation Test
-    cout << "\nRunning Synchronization Validation Test (no mutex)...\n";
+    cout << "\n==== Running Synchronization Validation Test (no mutex) ====\n";
     BankAccount account2(100);
     syncValidationTest(account2);
 
     // Run Stress Test
-    cout << "\nRunning Stress Test...\n";
+    cout << "\n==== Running Stress Test ====\n";
     stressTest();
 
     return 0;
